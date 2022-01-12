@@ -18,3 +18,4 @@ ipykernel
 jupyter_contrib_nbextensions
 numpy
 matplotlib
+pandas

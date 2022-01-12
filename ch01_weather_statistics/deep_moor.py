@@ -12,6 +12,9 @@ from pathlib import Path
 import csv
 from collections import namedtuple
 from typing import Any
+from time import perf_counter
+
+import pandas as pd
 
 
 def data_files() -> list[Path]:
@@ -61,6 +64,21 @@ def read_data_stdlib():
     return data
 
 
+def read_data_pandas() -> pd.DataFrame:
+    # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html#pandas.read_csv
+    cols = [deep_moor_fields[0], "Barometric_Press"]
+    conv = {0: lambda x: datetime.fromisoformat(x.replace("_", "-").replace(" ", "T") + ".000")}
+    fls = data_files()
+    t0 = perf_counter()
+    df = pd.concat((
+        pd.read_csv(path, sep="\t", converters=conv, usecols=cols)
+        for path in fls
+    ))
+    dt = perf_counter() - t0
+    print(f"retrieved {len(df)} readings from {len(fls)} csv files [{dt:0.3} s]")
+    return df
+
+
 if __name__ == "__main__":
-    data = read_data_stdlib()
+    data = read_data_pandas()
     pass

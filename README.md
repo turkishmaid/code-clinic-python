@@ -22,6 +22,10 @@ python3.9 -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
+A `jupyter notebook` server started from that venv will recognize the `venv` as "Python 3 (ipykernel)" without [ipython kernel install](https://medium.com/@eleroy/jupyter-notebook-in-a-virtual-environment-virtualenv-8f3c3448247) when `jupyter` is installed [from within the virtual environment](https://stackoverflow.com/a/59073948/3991164).
+
+
+
 ### Resources
 
 Download Exercise Files from LinkedIn (no clue about their license, so not in this repo).
