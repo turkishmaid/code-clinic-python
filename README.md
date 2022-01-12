@@ -29,3 +29,5 @@ A `jupyter notebook` server started from that venv will recognize the `venv` as 
 ### Resources
 
 Download Exercise Files from LinkedIn (no clue about their license, so not in this repo).
+
+Update: Lynda.com [has a repo with the data](https://github.com/lyndadotcom/LPO_weatherdata). Consider including it here...
